@@ -1,0 +1,21 @@
+{
+  "name": "lb-connector-mandrill",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Maciej Chmielarski <hello@evenemento.co> (http://evenemento.co/)",
+  "license": "MIT",
+  "dependencies": {
+    "mandrill-api": "^1.0.41"
+  },
+  "devDependencies": {
+    "chai": "^1.9.2",
+    "loopback": "^2.7.0",
+    "loopback-datasource-juggler": "^2.10.2",
+    "mocha": "^2.0.1",
+    "rewire": "^2.1.2"
+  }
+}
