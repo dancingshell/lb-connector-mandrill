@@ -12,7 +12,6 @@ npm install lb-connector-mandrill --save
 
 datasources.json
 
-
     {
         "mandrill": {
             "connector": "lb-connector-mandrill",
