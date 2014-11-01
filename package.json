@@ -1,11 +1,15 @@
 {
   "name": "lb-connector-mandrill",
   "version": "0.0.1",
-  "description": "",
+  "description": "Loopback connector module which allow to send emails via Mandrill",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "keywords": [
+    "loopback",
+    "mandrill",
+    "connector",
+    "evenemento",
+    "templates"
+  ],
   "author": "Maciej Chmielarski <hello@evenemento.co> (http://evenemento.co/)",
   "license": "MIT",
   "dependencies": {
