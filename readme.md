@@ -28,7 +28,20 @@ model-config.json
         }
     }
 
-You can optionally setup it in javascript
+Additionaly you can set defaults
+
+    {
+        "mandrill": {
+            "connector": "lb-connector-mandrill",
+            "apikey": "[your api key here]",
+            "defaults": {
+                "account": "evenemento",
+                "inline_css": true
+            }
+        }
+    }
+
+Configuration in JavaScript
 
     var DataSource = require('loopback-datasource-juggler').DataSource;
     var dsMandrill = new DataSource('lb-connector-mandrill', {
