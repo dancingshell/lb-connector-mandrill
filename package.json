@@ -1,6 +1,6 @@
 {
   "name": "lb-connector-mandrill",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Loopback connector module which allow to send emails via Mandrill",
   "main": "index.js",
   "keywords": [
