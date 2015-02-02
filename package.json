@@ -2,7 +2,7 @@
   "author": "John Barry",
   "name": "loopback-connector-sendgrid",
   "description": "Loopback connector module which allow to send emails via SendGrid",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT License (MIT)",
   "repository": {
     "type": "git",
@@ -44,8 +44,8 @@
         }
       }
     },
-    "build": "3",
-    "buildTimestamp": "2015-02-02T23:56:28.690+10:00"
+    "build": "5",
+    "buildTimestamp": "2015-02-03T00:06:42.216+10:00"
   },
   "main": "./lib",
   "directories": {
@@ -59,8 +59,8 @@
     "build": "Build"
   },
   "dependencies": {
-    "lodash": "^2.4.1",
-    "q": "^1.0.1",
+    "lodash": "^3.0.1",
+    "q": "^1.1.2",
     "sendgrid": "^1.5.0"
   },
   "devDependencies": {
@@ -68,15 +68,14 @@
     "loopback-datasource-juggler": "^2.7.0",
     "rewire": "^2.1.4",
     "bootstrap": "^3.3.2",
-    "font-awesome": "^4.2.0",
     "gulp-webpack": "^1.1.2",
     "bootstrap-webpack": "0.0.4",
-    "font-awesome-webpack": "0.0.2",
     "extract-text-webpack-plugin": "^0.3.8",
+    "less": "^2.3.1",
+    "less-loader": "^2.0.0",
     "css-loader": "^0.9.1",
     "url-loader": "^0.5.5",
     "file-loader": "^0.8.1",
-    "less-loader": "~0.7.0",
     "style-loader": "^0.8.3",
     "imports-loader": "^0.6.3",
     "script-loader": "^0.6.1",
