@@ -1,0 +1,9 @@
+node_modules/
+bower_components/
+.idea/
+.git/
+Reports/
+Build/
+Temp/
+/*.log
+atlassian-ide-plugin.xml

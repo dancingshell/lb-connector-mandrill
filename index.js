@@ -1,1 +1,1 @@
-module.exports = require('./lib/mandrill');
+module.exports = require('./lib/sendgrid');

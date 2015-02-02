@@ -1,32 +1,117 @@
 {
-  "name": "lb-connector-mandrill",
-  "version": "0.0.3",
-  "description": "Loopback connector module which allow to send emails via Mandrill",
-  "main": "index.js",
-  "keywords": [
-    "loopback",
-    "mandrill",
-    "connector",
-    "evenemento",
-    "templates"
-  ],
-  "author": "Maciej Chmielarski <hello@evenemento.co> (http://evenemento.co/)",
-  "license": "MIT",
-  "dependencies": {
-    "lodash": "^2.4.1",
-    "mandrill-api": "^1.0.41",
-    "q": "^1.0.1"
-  },
-  "devDependencies": {
-    "chai": "^1.9.2",
-    "loopback": "^2.7.0",
-    "loopback-datasource-juggler": "^2.10.2",
-    "mocha": "^2.0.1",
-    "rewire": "^2.1.2"
-  },
-  "homepage": "https://github.com/evenemento/lb-connector-mandrill",
+  "author": "John Barry",
+  "name": "loopback-connector-sendgrid",
+  "description": "Loopback connector module which allow to send emails via SendGrid",
+  "version": "0.1.0",
+  "license": "MIT License (MIT)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/evenemento/lb-connector-mandrill.git"
-  }
+    "url": "https://github.com/Cellarise/loopback-connector-sendgrid.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "config": {
+    "adminEmail": "mail@cellarise.com",
+    "coverage": {
+      "stats": {
+        "lines": {
+          "pctSkipped": 0,
+          "pct": 75,
+          "colour": "yellow"
+        },
+        "branches": {
+          "pctSkipped": 0,
+          "pct": 36,
+          "colour": "yellow"
+        },
+        "statements": {
+          "pctSkipped": 0,
+          "pct": 75,
+          "colour": "yellow"
+        },
+        "functions": {
+          "pctSkipped": 0,
+          "pct": 71,
+          "colour": "yellow"
+        },
+        "skipped": {
+          "pct": 0
+        },
+        "overall": {
+          "pct": 64,
+          "colour": "yellow"
+        }
+      }
+    },
+    "build": "3",
+    "buildTimestamp": "2015-02-02T23:56:28.690+10:00"
+  },
+  "main": "./lib",
+  "directories": {
+    "lib": "lib",
+    "bin": "bin",
+    "doc": "doc",
+    "tasks": "tasks",
+    "templates": "templates",
+    "test": "Test",
+    "reports": "Reports",
+    "build": "Build"
+  },
+  "dependencies": {
+    "lodash": "^2.4.1",
+    "q": "^1.0.1",
+    "sendgrid": "^1.5.0"
+  },
+  "devDependencies": {
+    "loopback": "^2.5.0",
+    "loopback-datasource-juggler": "^2.7.0",
+    "rewire": "^2.1.4",
+    "bootstrap": "^3.3.2",
+    "font-awesome": "^4.2.0",
+    "gulp-webpack": "^1.1.2",
+    "bootstrap-webpack": "0.0.4",
+    "font-awesome-webpack": "0.0.2",
+    "extract-text-webpack-plugin": "^0.3.8",
+    "css-loader": "^0.9.1",
+    "url-loader": "^0.5.5",
+    "file-loader": "^0.8.1",
+    "less-loader": "~0.7.0",
+    "style-loader": "^0.8.3",
+    "imports-loader": "^0.6.3",
+    "script-loader": "^0.6.1",
+    "jsx-loader": "^0.12.2",
+    "bunyan": "^1.1.3",
+    "bunyan-format": "^0.2.1",
+    "david": "^6.0.1",
+    "eslint": "^0.13.0",
+    "glob": "^4.0.5",
+    "gulp": "^3.8.6",
+    "gulp-async-func-runner": "^0.1.2",
+    "gulp-concat": "^2.3.4",
+    "gulp-dust-compile-render": "^0.2.1",
+    "gulp-eslint": "0.2.2",
+    "gulp-istanbul-custom-reports": "^0.1.0",
+    "gulp-jsdoc-to-markdown": "^0.1.3",
+    "gulp-json-editor": "^2.0.2",
+    "gulp-load-params": "^0.1.3",
+    "gulp-mocha": "^2.0.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-util": "^3.0.0",
+    "gulp-yadda-steps": "^0.1.1",
+    "istanbul-reporter-clover-limits": "^0.1.1",
+    "mkdirp": "^0.5.0",
+    "mocha-bamboo-reporter-bgo": "^1.0.7",
+    "npm-license": "^0.2.2",
+    "oauth-rest-atlassian": "^0.4.0",
+    "run-sequence": "^1.0.0",
+    "should": "^4.0.4",
+    "through2": "^0.6.3",
+    "underscore": "^1.6.0",
+    "vasync": "^1.6.1",
+    "webpack": "^1.3.7",
+    "node-dir-diff": "0.0.1",
+    "yadda": "^0.11.2"
+  },
+  "optionalDependencies": {}
 }

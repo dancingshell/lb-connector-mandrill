@@ -1,0 +1,7 @@
+node_modules/**/*.js
+bower_components/**/*.js
+Reports/**/*.js
+Build/**/*.js
+pub-build/**/*.js
+Temp/**/*.js
+Test_Resources/**/*.js
