@@ -12,6 +12,7 @@ Feature: Email connector: Add an loopback connector for sending emails from Send
     When initiated with the correct properties
     Then it should be initiated without error
 
+  @linked=MDLPCNSG-6
   Scenario: Sending an email from Email.send
 
     Given the sendgrid connector

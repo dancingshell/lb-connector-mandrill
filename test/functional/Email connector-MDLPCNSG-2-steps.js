@@ -24,11 +24,9 @@ module.exports = (function testSuite() {
           return params;
         },
         "send": function(message, cb) {
-          cb(null, {
-            "to": message.to,
-            "status": 'sent',
-            "_id": 'someidofmessage'
-          });
+          message.status = 'sent';
+          message._id = 'someidofmessage';
+          cb(null, message);
         }
       };
   };
@@ -114,6 +112,7 @@ module.exports = (function testSuite() {
       function test(done) {
         var result = this.world.result;
         var msg = this.world.msg;
+        assert(result.subject === msg.subject);
         assert(result.to[0] === msg.to);
         assert(result.status === 'sent');
         assert(result._id !== null);
