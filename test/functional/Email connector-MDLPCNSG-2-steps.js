@@ -7,20 +7,19 @@ module.exports = (function testSuite() {
   var loopback = require('loopback');
   var rewire = require("rewire");
   var DataSource = require('loopback-datasource-juggler').DataSource;
-  var __sendgridmock__ = function sendGridMock(username, password) {
+  var __sendgridmock__ = function sendGridMock(username, password, options) {
       return {
-        "username": username,
-        "password": password,
+        "api_user": username,
+        "api_key": password,
+        "options": options,
         "Email": function(params){
           params.setFilters = function(filter) {
             return filter;
           };
           params.send = function(message, cb) {
-            cb(null, {
-              "to": message.to,
-              "status": 'sent',
-              "_id": 'someidofmessage'
-            });
+            message.status = 'sent';
+            message._id = 'someidofmessage';
+            cb(null, message);
           };
           return params;
         },
@@ -39,12 +38,13 @@ module.exports = (function testSuite() {
       function test(done) {
         var Connector = rewire(path.join(__dirname, '../../lib/sendgrid'));
         this.world.connector = Connector;
+        this.world.__sendgridmock__ = __sendgridmock__;
         assert(true);
         done();
       })
 .define("When initiated without the correct properties",
       function test(done) {
-        /* eslint no-unused-vars: 0 */
+        /* eslint-disable no-unused-vars */
         var connectTest, Connector = this.world.connector;
         var self = this;
         try {
@@ -55,6 +55,7 @@ module.exports = (function testSuite() {
         }
         self.world.error = false;
         done();
+        /* eslint-enable no-unused-vars */
       })
 .define("Then it should throw an error",
       function test(done) {
@@ -68,11 +69,11 @@ module.exports = (function testSuite() {
         var self = this;
         var ds;
         try {
-          Connector.__set__('sendGrid', __sendgridmock__);
+          Connector.__set__('sendGridLib', this.world.__sendgridmock__);
           ds = new DataSource({
             "connector": Connector,
-            "username": 'testuser',
-            "password": 'password'
+            "api_user": 'testuser',
+            "api_key": 'password'
           });
 
           Email.attachTo(ds);

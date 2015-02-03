@@ -11,8 +11,8 @@ datasources.json
     {
         "sendgrid": {
             "connector": "loopback-connector-sendgrid",
-            "username": '[your username here]'
-            "password": '[your password here]'
+            "api_user": '[your username here]'
+            "api_key": '[your password here]'
         }
     }
 
@@ -29,8 +29,8 @@ Configuration in JavaScript
 
     var DataSource = require('loopback-datasource-juggler').DataSource;
     var dsSendGrid = new DataSource('loopback-connector-sendgrid', {
-        username: '[your username here]'
-        password: '[your password here]'
+        api_user: '[your username here]'
+        api_key: '[your password here]'
     });
     loopback.Email.attachTo(dsSendGrid);
 

@@ -2,7 +2,7 @@
 [![view on npm](http://img.shields.io/npm/v/loopback-connector-sendgrid.svg?style=flat)](https://www.npmjs.org/package/loopback-connector-sendgrid)
 [![npm module downloads per month](http://img.shields.io/npm/dm/loopback-connector-sendgrid.svg?style=flat)](https://www.npmjs.org/package/loopback-connector-sendgrid)
 [![Dependency status](https://david-dm.org/Cellarise/loopback-connector-sendgrid.svg?style=flat)](https://david-dm.org/Cellarise/loopback-connector-sendgrid)
-[![Coverage](https://img.shields.io/badge/coverage-64%25_skipped:0%25-yellow.svg?style=flat)](https://www.npmjs.org/package/loopback-connector-sendgrid)
+[![Coverage](https://img.shields.io/badge/coverage-65%25_skipped:0%25-yellow.svg?style=flat)](https://www.npmjs.org/package/loopback-connector-sendgrid)
 
 > Loopback connector module which allow to send emails via SendGrid
 
@@ -20,8 +20,8 @@ datasources.json
     {
         "sendgrid": {
             "connector": "loopback-connector-sendgrid",
-            "username": '[your username here]'
-            "password": '[your password here]'
+            "api_user": '[your username here]'
+            "api_key": '[your password here]'
         }
     }
 
@@ -38,8 +38,8 @@ Configuration in JavaScript
 
     var DataSource = require('loopback-datasource-juggler').DataSource;
     var dsSendGrid = new DataSource('loopback-connector-sendgrid', {
-        username: '[your username here]'
-        password: '[your password here]'
+        api_user: '[your username here]'
+        api_key: '[your password here]'
     });
     loopback.Email.attachTo(dsSendGrid);
 
@@ -79,6 +79,25 @@ Basic option same as built in Loopback
   </tr>
     
 <tr>
+        <td colspan=4><strong>Version: 1.0.0 - released 2015-02-03</strong></td>
+      </tr>
+        
+<tr>
+            <td style="width:20px;text-align:center;"><img src='https://jira.cellarise.com:80/secure/viewavatar?size=xsmall&amp;avatarId=10411&amp;avatarType=issuetype'/></td>
+            <td style="width:80px;text-align:center;">Feature</td>
+            <td style="width:80px;text-align:left;">MDLPCNSG-5</td>
+            <td>Email connector: Add sendgrid filters passthrough from datasource</td>
+          </tr>
+        
+<tr>
+            <td style="width:20px;text-align:center;"><img src='https://jira.cellarise.com:80/secure/viewavatar?size=xsmall&amp;avatarId=10411&amp;avatarType=issuetype'/></td>
+            <td style="width:80px;text-align:center;">Feature</td>
+            <td style="width:80px;text-align:left;">MDLPCNSG-4</td>
+            <td>Email connector: Add sendgrid options passthrough from datasource</td>
+          </tr>
+        
+    
+<tr>
         <td colspan=4><strong>Version: 0.1.1 - released 2015-02-03</strong></td>
       </tr>
         
@@ -98,7 +117,7 @@ Basic option same as built in Loopback
             <td style="width:20px;text-align:center;"><img src='https://jira.cellarise.com:80/secure/viewavatar?size=xsmall&amp;avatarId=10411&amp;avatarType=issuetype'/></td>
             <td style="width:80px;text-align:center;">Feature</td>
             <td style="width:80px;text-align:left;">MDLPCNSG-2</td>
-            <td>Email connector: Add a loopback connector for sending emails from SendGrid</td>
+            <td>Email connector: Add an loopback connector for sending emails from SendGrid</td>
           </tr>
         
     
