@@ -18,7 +18,7 @@ var logger = require("bunyan").createLogger({"name": "TEST", "stream": formatOut
 
 //setup test 'world' context object and logger
 //Note: world.before and world.after are reserved for adding before and after functions
-var context = {"world": {"logger": logger}};
+var worldContext = {"world": {"logger": logger}};
 
 //execute all unit test feature files
 if (directories.hasOwnProperty("testFeatures")) {
@@ -64,13 +64,13 @@ new Yadda.FeatureFileSearch([testFeatures]).each(function eachFeatureFile(file) 
       loadedLibraries = requireLibraries(libraries);
 
       //initiate yadda and execute each scenario
-      yadda = new Yadda.Yadda(loadedLibraries, context);
+      yadda = new Yadda.Yadda(loadedLibraries, worldContext);
       scenarios(feature.scenarios, function scenario(scenarioParam) {
         //before test setup
         before(function before(done) {
-          if (context.world.hasOwnProperty("before")) {
-            context.world.before(done);
-            delete context.world.before;
+          if (worldContext.world.hasOwnProperty("before")) {
+            worldContext.world.before(done);
+            delete worldContext.world.before;
           } else {
             done();
           }
@@ -81,9 +81,9 @@ new Yadda.FeatureFileSearch([testFeatures]).each(function eachFeatureFile(file) 
         });
         //after test teardown
         after(function after(done) {
-          if (context.world.hasOwnProperty("after")) {
-            context.world.after(done);
-            delete context.world.after;
+          if (worldContext.world.hasOwnProperty("after")) {
+            worldContext.world.after(done);
+            delete worldContext.world.after;
           } else {
             done();
           }

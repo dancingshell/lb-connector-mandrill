@@ -49,7 +49,7 @@ module.exports = function testTasks(gulp, context) {
     return gulp.src(directories.test + "/test.js")
       .pipe(mocha({
         "reporter": reporter,
-        "timeout": 500000
+        "timeout": 600000
       }))
       .on("error", handleError)
       .pipe(istanbul.writeReports({

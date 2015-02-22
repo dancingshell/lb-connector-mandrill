@@ -2,7 +2,7 @@
   "author": "John Barry",
   "name": "loopback-connector-sendgrid",
   "description": "Loopback connector module which allow to send emails via SendGrid",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT License (MIT)",
   "repository": {
     "type": "git",
@@ -12,8 +12,34 @@
     "registry": "https://registry.npmjs.org"
   },
   "config": {
+    "private": false,
+    "projectCode": "MDLPCNSG",
+    "build": "14",
+    "buildTimestamp": "2015-02-23T00:06:57.413+10:00",
     "adminEmail": "mail@cellarise.com",
     "coverage": {
+      "watermarks": {
+        "statements": [
+          50,
+          80,
+          20
+        ],
+        "lines": [
+          50,
+          80,
+          20
+        ],
+        "functions": [
+          50,
+          80,
+          20
+        ],
+        "branches": [
+          35,
+          80,
+          20
+        ]
+      },
       "stats": {
         "lines": {
           "pctSkipped": 0,
@@ -43,9 +69,7 @@
           "colour": "yellow"
         }
       }
-    },
-    "build": "11",
-    "buildTimestamp": "2015-02-03T21:43:05.510+10:00"
+    }
   },
   "main": "./lib",
   "directories": {
@@ -60,7 +84,7 @@
   },
   "dependencies": {
     "lodash": "^3.0.1",
-    "q": "^1.1.2",
+    "q": "^1.2.0",
     "sendgrid": "^1.5.0"
   },
   "devDependencies": {
@@ -72,6 +96,7 @@
     "bootstrap-webpack": "0.0.4",
     "extract-text-webpack-plugin": "^0.3.8",
     "less": "^2.3.1",
+    "json-loader": "^0.5.1",
     "less-loader": "^2.0.0",
     "css-loader": "^0.9.1",
     "url-loader": "^0.5.5",
@@ -80,16 +105,17 @@
     "imports-loader": "^0.6.3",
     "script-loader": "^0.6.1",
     "jsx-loader": "^0.12.2",
+    "webpack-traceur-loader": "^0.3.0",
     "bunyan": "^1.1.3",
     "bunyan-format": "^0.2.1",
     "david": "^6.0.1",
-    "eslint": "^0.13.0",
+    "eslint": "^0.14.1",
     "glob": "^4.0.5",
     "gulp": "^3.8.6",
     "gulp-async-func-runner": "^0.1.2",
     "gulp-concat": "^2.3.4",
     "gulp-dust-compile-render": "^0.2.1",
-    "gulp-eslint": "0.2.2",
+    "gulp-eslint": "^0.4.3",
     "gulp-istanbul-custom-reports": "^0.1.0",
     "gulp-jsdoc-to-markdown": "^0.1.3",
     "gulp-json-editor": "^2.0.2",
@@ -104,7 +130,7 @@
     "npm-license": "^0.2.2",
     "oauth-rest-atlassian": "^0.4.0",
     "run-sequence": "^1.0.0",
-    "should": "^4.0.4",
+    "should": "^5.0.0",
     "through2": "^0.6.3",
     "underscore": "^1.6.0",
     "vasync": "^1.6.1",
