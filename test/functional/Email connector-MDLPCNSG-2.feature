@@ -20,6 +20,14 @@ Feature: Email connector: Add an loopback connector for sending emails from Send
     And called using the method Email.send
     Then it should send the email
 
+  @linked=MDLPCNSG-11
+  Scenario: Sending an email from Email.send
+
+    Given the sendgrid connector
+    When initiated with email message with from specified as {name: , address:}
+    And called using the method Email.send
+    Then it should send the email
+
   Scenario: Sending an email from Email.prototype.send
 
     Given the sendgrid connector

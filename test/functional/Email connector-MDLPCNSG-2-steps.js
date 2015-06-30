@@ -90,6 +90,39 @@ module.exports = (function testSuite() {
         self.world.error = false;
         done();
       })
+ .define("When initiated with email message with from specified as {name: , address:}",
+    function test(done) {
+      var Email = loopback.Email.extend('testEmail');
+      var Connector = this.world.connector;
+      var self = this;
+      var ds;
+      try {
+        Connector.__set__('sendGridLib', this.world.__sendgridmock__);
+        ds = new DataSource({
+          "connector": Connector,
+          "api_user": 'testuser',
+          "api_key": 'password'
+        });
+
+        Email.attachTo(ds);
+        this.world.email = Email;
+        this.world.msg = {
+          "from": {
+            "name": 'test',
+            "address": 'test@evenemento.co'
+          },
+          "to": 'test2@evenemento.co',
+          "subject": 'Test subject',
+          "text": 'Plain text',
+          "html": 'Html <b>content</b>'
+        };
+      } catch (err) {
+        self.world.error = true;
+        return done();
+      }
+      self.world.error = false;
+      done();
+    })
 .define("Then it should be initiated without error",
       function test(done) {
         assert(!this.world.error);
@@ -112,6 +145,7 @@ module.exports = (function testSuite() {
       function test(done) {
         var result = this.world.result;
         var msg = this.world.msg;
+        assert(result.from === 'test@evenemento.co');
         assert(result.subject === msg.subject);
         assert(result.to[0] === msg.to);
         assert(result.status === 'sent');

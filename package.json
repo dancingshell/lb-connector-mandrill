@@ -2,7 +2,7 @@
   "author": "John Barry",
   "name": "loopback-connector-sendgrid",
   "description": "Loopback connector module which allow to send emails via SendGrid",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "license": "MIT License (MIT)",
   "repository": {
     "type": "git",
@@ -14,8 +14,8 @@
   "config": {
     "private": false,
     "projectCode": "MDLPCNSG",
-    "build": "16",
-    "buildTimestamp": "2015-04-20T09:39:11.394+10:00",
+    "build": "19",
+    "buildTimestamp": "2015-06-30T22:34:11.609+10:00",
     "adminEmail": "mail@cellarise.com",
     "coverage": {
       "watermarks": {
@@ -43,22 +43,22 @@
       "stats": {
         "lines": {
           "pctSkipped": 0,
-          "pct": 76,
+          "pct": 77,
           "colour": "yellow"
         },
         "branches": {
           "pctSkipped": 0,
-          "pct": 37,
+          "pct": 42,
           "colour": "yellow"
         },
         "statements": {
           "pctSkipped": 0,
-          "pct": 76,
+          "pct": 77,
           "colour": "yellow"
         },
         "functions": {
           "pctSkipped": 0,
-          "pct": 71,
+          "pct": 63,
           "colour": "yellow"
         },
         "skipped": {
@@ -72,6 +72,9 @@
     }
   },
   "main": "./lib",
+  "scripts": {
+    "test": "./node_modules/.bin/gulp"
+  },
   "directories": {
     "lib": "lib",
     "bin": "bin",
@@ -83,60 +86,28 @@
     "build": "Build"
   },
   "dependencies": {
-    "lodash": "^3.6.0",
     "q": "^1.2.0",
+    "ramda": "^0.15.0",
     "sendgrid": "^1.5.0"
   },
   "devDependencies": {
-    "loopback": "^2.5.0",
-    "loopback-datasource-juggler": "^2.7.0",
-    "rewire": "^2.1.4",
-    "bootstrap": "^3.3.2",
-    "gulp-webpack": "^1.1.2",
-    "bootstrap-webpack": "0.0.4",
-    "extract-text-webpack-plugin": "^0.3.8",
-    "less": "^2.3.1",
-    "json-loader": "^0.5.1",
-    "less-loader": "^2.0.0",
-    "css-loader": "^0.9.1",
-    "url-loader": "^0.5.5",
-    "file-loader": "^0.8.1",
-    "style-loader": "^0.8.3",
-    "imports-loader": "^0.6.3",
-    "script-loader": "^0.6.1",
-    "jsx-loader": "^0.12.2",
-    "webpack-traceur-loader": "^0.3.0",
+    "loopback": "^2.18.0",
+    "loopback-datasource-juggler": "^2.30.1",
+    "rewire": "^2.3.4",
     "bunyan": "^1.1.3",
     "bunyan-format": "^0.2.1",
-    "david": "^6.0.1",
-    "eslint": "^0.14.1",
-    "glob": "^4.0.5",
+    "glob": "^5.0.3",
     "gulp": "^3.8.6",
-    "gulp-async-func-runner": "^0.1.2",
-    "gulp-concat": "^2.3.4",
-    "gulp-dust-compile-render": "^0.2.1",
-    "gulp-eslint": "^0.4.3",
-    "gulp-istanbul-custom-reports": "^0.1.0",
-    "gulp-jsdoc-to-markdown": "^0.1.3",
-    "gulp-json-editor": "^2.0.2",
     "gulp-load-params": "^0.1.3",
+    "gulp-istanbul": "^0.9.0",
     "gulp-mocha": "^2.0.0",
-    "gulp-rename": "^1.2.0",
     "gulp-util": "^3.0.0",
-    "gulp-yadda-steps": "^0.1.1",
     "istanbul-reporter-clover-limits": "^0.1.1",
-    "mkdirp": "^0.5.0",
     "mocha-bamboo-reporter-bgo": "^1.0.7",
-    "npm-license": "^0.2.2",
-    "oauth-rest-atlassian": "^0.4.0",
+    "yadda": "^0.11.5",
     "run-sequence": "^1.0.0",
-    "should": "^5.0.0",
-    "through2": "^0.6.3",
-    "underscore": "^1.6.0",
-    "vasync": "^1.6.1",
-    "webpack": "^1.3.7",
-    "node-dir-diff": "0.0.1",
-    "yadda": "^0.11.2"
+    "ramda": "^0.14.0",
+    "mkdirp": "^0.5.0"
   },
   "optionalDependencies": {}
 }
