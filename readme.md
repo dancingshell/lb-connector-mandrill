@@ -78,6 +78,18 @@ Basic option same as built in Loopback
   </tr>
     
 <tr>
+        <td colspan=4><strong>Version: 1.1.1 - released 2015-07-01</strong></td>
+      </tr>
+        
+<tr>
+            <td style="width:20px;padding:0;margin:0;text-align:center;"><img src="https://jira.cellarise.com:80/secure/viewavatar?size=xsmall&amp;avatarId=10419&amp;avatarType=issuetype"/></td>
+            <td style="width:80px;text-align:left;">Non-functional</td>
+            <td style="width:80px;text-align:left;">MDLPCNSG-12</td>
+            <td><p>Package: Update package dependencies</p><p></p></td>
+          </tr>
+        
+    
+<tr>
         <td colspan=4><strong>Version: 1.1.0 - released 2015-06-30</strong></td>
       </tr>
         
