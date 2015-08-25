@@ -13,13 +13,21 @@ module.exports = function testTasks(gulp, context) {
   var mocha = require("gulp-mocha");
   var mkdirp = require("mkdirp");
   var istanbul = require("gulp-istanbul");
+  var gutil = require("gulp-util");
   var glob = require("glob");
   var path = require("path");
   var R = require("ramda");
   var logger = context.logger;
+  var COVERAGE_VAR = "__cpmCoverage__";
 
   var handleError = function handleError(err) {
     logger.error(err.toString());
+    if (process.env.CI) {
+      throw new gutil.PluginError({
+        "plugin": "Gulp Mocha",
+        "message": err.toString()
+      });
+    }
     this.emit("end"); //jshint ignore:line
   };
 
@@ -46,18 +54,29 @@ module.exports = function testTasks(gulp, context) {
       logger.info("Set process.env.YADDA_FEATURE_GLOB=" + process.env.YADDA_FEATURE_GLOB);
     }
 
-    return gulp.src(directories.test + "/test.js")
+    return gulp.src(path.resolve(process.cwd(), directories.test + "/test.js"), {"read": false})
       .pipe(mocha({
         "reporter": reporter,
         "timeout": 600000
       }))
       .on("error", handleError)
       .pipe(istanbul.writeReports({
-        "coverageVariable": "__cpmCoverage__",
-        "reporters": ["html", require("istanbul-reporter-clover-limits"), "json-summary"],
+        "coverageVariable": COVERAGE_VAR,
+        "reporters": ["html", "lcov", require("istanbul-reporter-clover-limits"), "json-summary"],
         "reportOpts": {
           "dir": cwd + "/" + directories.reports + "/code-coverage",
           "watermarks": pkg.config.coverage.watermarks
+        }
+      }))
+      .pipe(istanbul.enforceThresholds({
+        "coverageVariable": COVERAGE_VAR,
+        "thresholds": {
+          "each": {
+            "statements": pkg.config.coverage.watermarks.statements[0],
+            "branches": pkg.config.coverage.watermarks.branches[0],
+            "lines": pkg.config.coverage.watermarks.lines[0],
+            "functions": pkg.config.coverage.watermarks.functions[0]
+          }
         }
       }));
   };
@@ -80,7 +99,10 @@ module.exports = function testTasks(gulp, context) {
      * Make sure all these tasks do not require local references as defined above.
      */
     return gulp.src(sourceGlobStr)
-      .pipe(istanbul({"coverageVariable": "__cpmCoverage__"}))
+      .pipe(istanbul({
+        "coverageVariable": COVERAGE_VAR,
+        "includeUntested": true
+      }))
       .pipe(istanbul.hookRequire()); // Force `require` to return covered files
         // Covering files - note: finish event called when finished (not end event)
   });
@@ -101,6 +123,9 @@ module.exports = function testTasks(gulp, context) {
     process.env.MOCHA_FILE = path.join(cwd, directories.reports, "unit-mocha-tests.json");
     //make sure the Reports directory exists - required for mocha-bamboo-reporter-bgo
     mkdirp.sync(path.join(cwd, directories.reports));
+    if (process.env.CI) {
+      return test("spec");
+    }
     return test("mocha-bamboo-reporter-bgo");
   });
 

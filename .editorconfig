@@ -1,0 +1,21 @@
+# Unix-style newlines with a newline ending every file
+[*]
+end_of_line = lf
+trim_trailing_whitespace = true
+insert_final_newline = true
+max_line_length = 120
+
+# Matches multiple files with brace expansion notation
+# Set default charset
+[*.{js,jsx}]
+charset = utf-8
+
+# 2 space indentation
+indent_style = space
+indent_size = 2
+
+# domain specific
+curly_bracket_next_line = true
+spaces_around_operators = hybrid
+spaces_around_brackets = outside
+continuation_indent_size = 2

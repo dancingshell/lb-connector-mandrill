@@ -1,0 +1,15 @@
+{
+  "env": {
+    "node": true,
+    "mocha": true
+  },
+  "globals": {
+    //yadda global variables
+    "featureFile": false,
+    "scenarios": false,
+    "steps": false
+  },
+  "rules":{
+    "quotes": [0, "single"]
+  }
+}
