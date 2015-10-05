@@ -81,6 +81,18 @@ Basic option same as built in Loopback
   </tr>
     
 <tr>
+        <td colspan=4><strong>Version: 1.2.0 - released 2015-10-05</strong></td>
+      </tr>
+        
+<tr>
+            <td style="width:20px;padding:0;margin:0;text-align:center;"><img src="https://jira.cellarise.com:80/secure/viewavatar?size=xsmall&amp;avatarId=10411&amp;avatarType=issuetype"/></td>
+            <td style="width:80px;text-align:left;">Feature</td>
+            <td style="width:80px;text-align:left;">MDLPCNSG-16</td>
+            <td><p>Email connector: Add support for api_key</p><p></p></td>
+          </tr>
+        
+    
+<tr>
         <td colspan=4><strong>Version: 1.1.4 - released 2015-08-25</strong></td>
       </tr>
         
@@ -243,5 +255,5 @@ MIT License (MIT). All rights not explicitly granted in the license are reserved
 
 Copyright (c) 2015 John Barry
 ## Dependencies
-[loopback-connector-sendgrid@0.0.0](&quot;https://github.com/Cellarise/loopback-connector-sendgrid&quot;) - &quot;MIT License (MIT)&quot;, 
+[loopback-connector-sendgrid@1.1.4](&quot;https://github.com/Cellarise/loopback-connector-sendgrid&quot;) - &quot;MIT License (MIT)&quot;, 
 *documented by [npm-licenses](http://github.com/AceMetrix/npm-license.git)*.
