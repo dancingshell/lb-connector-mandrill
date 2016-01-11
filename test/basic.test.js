@@ -1,9 +1,10 @@
 require('./helpers/init.js');
+var juggler = require('loopback-datasource-juggler');
 
-var loopback = require('loopback'),
-    rewire = require("rewire"),
+var rewire = require("rewire"),
     Connector = rewire('../lib/mandrill'),
-    DataSource = require('loopback-datasource-juggler').DataSource,
+    DataSource = juggler.DataSource,
+    ModelBuilder = juggler.ModelBuilder,
     Email, ds;
 
 var __MandrilMock__ = {
@@ -53,8 +54,9 @@ describe('Mandrill message send', function() {
       connector: Connector,
       apikey: '123456'
     });
-
-    Email = loopback.Email.extend('testEmail');
+    
+    var modelBuilder = new ModelBuilder();
+    Email = modelBuilder.define('Email');
     Email.attachTo(ds);
   });
 

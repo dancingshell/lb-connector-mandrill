@@ -19,7 +19,6 @@
   },
   "devDependencies": {
     "chai": "^1.9.2",
-    "loopback": "^2.7.0",
     "loopback-datasource-juggler": "^2.44.0",
     "mocha": "^2.0.1",
     "rewire": "^2.1.2"
