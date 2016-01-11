@@ -13,14 +13,14 @@
   "author": "Maciej Chmielarski <hello@evenemento.co> (http://evenemento.co/)",
   "license": "MIT",
   "dependencies": {
-    "lodash": "^2.4.1",
-    "mandrill-api": "^1.0.41",
-    "q": "^1.0.1"
+    "lodash": "^3.10.1",
+    "mandrill-api": "^1.0.45",
+    "q": "^1.4.1"
   },
   "devDependencies": {
     "chai": "^1.9.2",
     "loopback": "^2.7.0",
-    "loopback-datasource-juggler": "^2.10.2",
+    "loopback-datasource-juggler": "^2.44.0",
     "mocha": "^2.0.1",
     "rewire": "^2.1.2"
   },

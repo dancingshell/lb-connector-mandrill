@@ -69,7 +69,7 @@ describe('Mandrill message send', function() {
 
     Email.send(msg, function(err, result) {
       expect(err).to.equal(null);
-      expect(result[0].email).to.equal(msg.to[0].email);
+      expect(result[0].email).to.equal(msg.to);
       expect(result[0].status).to.equal('sent');
       expect(result[0]._id).to.not.equal(null)
       done();
@@ -89,7 +89,7 @@ describe('Mandrill message send', function() {
 
     email.send(function(err, result) {
       expect(err).to.equal(null);
-      expect(result[0].email).to.equal(msg.to[0].email);
+      expect(result[0].email).to.equal(msg.to);
       expect(result[0].status).to.equal('sent');
       expect(result[0]._id).to.not.equal(null)
       done();
