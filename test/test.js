@@ -15,7 +15,7 @@ var testConfig = R.merge({
   "url": "http://localhost",
   "port": "3000",
   "browsers": []
-}, pkg.config.test);
+}, R.defaultTo({}, pkg.config.test));
 var testUtils = require('./testUtils')(testConfig);
 
 //Setup test 'world' context object including world.logger, assertion library, and the browser context object
