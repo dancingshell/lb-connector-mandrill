@@ -18,9 +18,9 @@ module.exports = function testTasks(gulp, context) {
   var fs = require("fs");
   var R = require("ramda");
   var istanbul = require("gulp-istanbul");
+  var babel = require("babel-core/register");
   var logger = context.logger;
   var COVERAGE_VAR = "__cpmCoverage__";
-  var babel, babelCompiler;
 
   var lowerCaseFirstLetter = function lowerCaseFirstLetter(str) {
     return str.slice(0, 1).toLowerCase() + str.slice(1);
@@ -85,15 +85,6 @@ module.exports = function testTasks(gulp, context) {
     var outputDir = path.join(cwd, directories.reports, "code-coverage"
       + (process.env.SELENIUM_PORT ? "-" + process.env.SELENIUM_PORT : ""));
 
-    try {
-      babel = require("babel-core/register");
-      babelCompiler = {
-        "js": babel
-      };
-    } catch (err) {
-      babelCompiler = {};
-    }
-
     //make sure Temp folder exists before test
     mkdirp.sync(path.join(cwd, "Temp"));
 
@@ -117,7 +108,9 @@ module.exports = function testTasks(gulp, context) {
     if (outputCoverageReports) {
       return gulp.src(path.resolve(process.cwd(), directories.test + "/test.js"), {"read": false})
         .pipe(mocha({
-          "compilers": babelCompiler,
+          "compilers": {
+            "js": babel
+          },
           "bail": process.env.hasOwnProperty("bamboo_working_directory"),
           "reporter": reporter,
           "timeout": 600000
@@ -146,7 +139,9 @@ module.exports = function testTasks(gulp, context) {
     }
     return gulp.src(path.resolve(process.cwd(), directories.test + "/test.js"), {"read": false})
       .pipe(mocha({
-        "compilers": babelCompiler,
+        "compilers": {
+          "js": babel
+        },
         "bail": true,
         "reporter": reporter,
         "timeout": 600000
