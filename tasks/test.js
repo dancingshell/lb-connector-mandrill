@@ -269,30 +269,52 @@ module.exports = function testTasks(gulp, context) {
     var pkg = context.package;
     var directories = pkg.directories;
     var outputDir = path.join(cwd, directories.reports, "code-coverage");
+    var outputDirs = [
+      path.join(cwd, directories.reports, "1", "code-coverage"),
+      path.join(cwd, directories.reports, "2",  "code-coverage"),
+      path.join(cwd, directories.reports, "3",  "code-coverage"),
+      path.join(cwd, directories.reports, "4",  "code-coverage"),
+      path.join(cwd, directories.reports, "5",  "code-coverage"),
+      path.join(cwd, directories.reports, "6",  "code-coverage"),
+      path.join(cwd, directories.reports, "7",  "code-coverage"),
+      path.join(cwd, directories.reports, "8",  "code-coverage"),
+      path.join(cwd, directories.reports, "9",  "code-coverage"),
+      path.join(cwd, directories.reports, "10",  "code-coverage"),
+      path.join(cwd, directories.reports, "NFR", "code-coverage")
+    ];
     var coverageFileNames = [
       'coverage-4441.json',
       'coverage-4442.json',
-      'coverage-4443.json',
-      'coverage-4444.json',
-      'coverage-4445.json',
-      'coverage-4446.json',
-      'coverage-4447.json',
-      'coverage-4448.json',
-      'coverage-4449.json',
-      'coverage-4450.json'
+      'coverage-4443.json'
     ];
     var fileContents;
     //read all coverage files and add to global[COVERAGE_VAR]
     R.forEach(
-      function forEachFile(fileName) {
-        try {
-          fileContents = fs.readFileSync(path.join(outputDir, fileName));
-          processCoverage(JSON.parse(fileContents));
-        } catch (err) {
-          return false;
-        }
+      function forEachOutputDir(reportDir) {
+        R.forEach(
+          function forEachFile(fileName) {
+            try {
+              fileContents = fs.readFileSync(path.join(reportDir, fileName));
+              logger.info("Loaded: " + reportDir + fileName);
+              //add find and replace for bamboo build server remote agents
+              processCoverage(
+                JSON.parse(fileContents
+                  .toString('utf-8')
+                  .replace(
+                    /(C:|D:|c:|d:)\\\\bamboo.*?\\\\xml-data\\\\build-dir\\\\.*?\\\\/g,
+                    cwd.replace(/\\/g, "\\\\") + "\\\\"
+                  )
+                )
+              );
+            } catch (err) {
+              logger.info("Write coverage failed for: " + reportDir + fileName);
+              return false;
+            }
+          },
+          coverageFileNames
+        );
       },
-      coverageFileNames
+      outputDirs
     );
 
     //clean coverage
