@@ -40,17 +40,17 @@
       "stats": {
         "lines": {
           "pctSkipped": 0,
-          "pct": 77,
+          "pct": 75,
           "colour": "yellow"
         },
         "branches": {
           "pctSkipped": 0,
-          "pct": 42,
+          "pct": 48,
           "colour": "yellow"
         },
         "statements": {
           "pctSkipped": 0,
-          "pct": 77,
+          "pct": 75,
           "colour": "yellow"
         },
         "functions": {
@@ -83,6 +83,7 @@
     "build": "Build"
   },
   "dependencies": {
+    "babel-core": "^6.10.4",
     "q": "^1.4.1",
     "ramda": "^0.21.0",
     "sendgrid": "^3.0.4"
