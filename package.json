@@ -83,12 +83,12 @@
     "build": "Build"
   },
   "dependencies": {
-    "babel-core": "^6.10.4",
     "q": "^1.4.1",
     "ramda": "^0.21.0",
     "sendgrid": "^3.0.4"
   },
   "devDependencies": {
+    "babel-core": "^6.10.4",
     "loopback": "^2.18.0",
     "loopback-datasource-juggler": "^2.30.1",
     "rewire": "^2.3.4",
