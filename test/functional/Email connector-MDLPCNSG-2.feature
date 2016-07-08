@@ -1,4 +1,4 @@
-Feature: Email connector: Add an loopback connector for sending emails from SendGrid
+Feature: Email connector: Add a loopback connector for sending emails from SendGrid
 
   Scenario: SendGrid init with invalid properties
 

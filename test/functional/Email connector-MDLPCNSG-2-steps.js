@@ -7,28 +7,21 @@ module.exports = (function testSuite() {
   var loopback = require('loopback');
   var rewire = require("rewire");
   var DataSource = require('loopback-datasource-juggler').DataSource;
-  var __sendgridmock__ = function sendGridMock(username, password, options) {
+  var __sendgridmock__ = {
+    "SendGrid": function SendGrid(apiKey) {
       return {
-        "api_user": username,
-        "api_key": password,
-        "options": options,
-        "Email": function(params){
-          params.setFilters = function(filter) {
-            return filter;
-          };
-          params.send = function(message, cb) {
-            message.status = 'sent';
-            message._id = 'someidofmessage';
-            cb(null, message);
-          };
-          return params;
+        "api_key": apiKey,
+        "emptyRequest": function emptyRequest() {
+          return {};
         },
-        "send": function(message, cb) {
-          message.status = 'sent';
-          message._id = 'someidofmessage';
-          cb(null, message);
+        "API": function API(request, cb) {
+          request.statusCode = 200;
+          request.status = 'sent';
+          request._id = 'someidofmessage';
+          cb(request);
         }
       };
+    }
   };
   return English.library()
   /*Scenario: SendGrid init with invalid properties */
@@ -70,7 +63,6 @@ module.exports = (function testSuite() {
           Connector.__set__('sendGridLib', this.world.__sendgridmock__);
           ds = new DataSource({
             "connector": Connector,
-            "api_user": 'testuser',
             "api_key": 'password'
           });
 
@@ -100,7 +92,6 @@ module.exports = (function testSuite() {
         Connector.__set__('sendGridLib', this.world.__sendgridmock__);
         ds = new DataSource({
           "connector": Connector,
-          "api_user": 'testuser',
           "api_key": 'password'
         });
 
@@ -145,9 +136,11 @@ module.exports = (function testSuite() {
       function test(done) {
         var result = this.world.result;
         var msg = this.world.msg;
-        assert(result.from === 'test@evenemento.co');
-        assert(result.subject === msg.subject);
-        assert(result.to[0] === msg.to);
+        assert(result.method === 'POST');
+        assert(result.path === '/v3/mail/send');
+        assert(result.body.from.email === 'test@evenemento.co');
+        assert(result.body.subject === msg.subject);
+        //assert(result.body.personalizations[0].to[0].email[0] === msg.to);
         assert(result.status === 'sent');
         assert(result._id !== null);
         done();
