@@ -7,7 +7,6 @@ module.exports = (function testSuite() {
   var loopback = require('loopback');
   var rewire = require("rewire");
   var DataSource = require('loopback-datasource-juggler').DataSource;
-  var Connector = rewire(path.join(__dirname, '../../lib/sendgrid'));
   var __sendgridmock__ = function () {
     return {
       "SendGrid": function SendGrid(apiKey) {
@@ -30,6 +29,7 @@ module.exports = (function testSuite() {
   /*Scenario: SendGrid init with invalid properties */
 .define("Given the sendgrid connector",
       function test(done) {
+        var Connector = rewire(path.join(__dirname, '../../lib/sendgrid'));
         this.world.connector = Connector;
         this.world.__sendgridmock__ = __sendgridmock__();
         assert(true);
