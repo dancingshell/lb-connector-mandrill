@@ -9,6 +9,37 @@
   </tr>
     
 <tr>
+        <td colspan=4><strong>Version: 2.0.1 - released 2016-07-08</strong></td>
+      </tr>
+        
+<tr>
+            <td style="width:20px;padding:0;margin:0;text-align:center;"><img src="https://jira.nhvr.net:80/secure/viewavatar?size=xsmall&amp;avatarId=10403&amp;avatarType=issuetype"/></td>
+            <td style="width:80px;text-align:left;">Bug</td>
+            <td style="width:80px;text-align:left;">MDLPCNSG-30</td>
+            <td><p>Package: Fix library to use sendgrid web APIv3 configuration</p><p></p></td>
+          </tr>
+        
+    
+<tr>
+        <td colspan=4><strong>Version: 2.0.0 - released 2016-07-08</strong></td>
+      </tr>
+        
+<tr>
+            <td style="width:20px;padding:0;margin:0;text-align:center;"><img src="https://jira.nhvr.net:80/secure/viewavatar?size=xsmall&amp;avatarId=10418&amp;avatarType=issuetype"/></td>
+            <td style="width:80px;text-align:left;">Non-functional</td>
+            <td style="width:80px;text-align:left;">MDLPCNSG-29</td>
+            <td><p>Package: Move babel-core from dependencies to devDependencies</p><p></p></td>
+          </tr>
+        
+<tr>
+            <td style="width:20px;padding:0;margin:0;text-align:center;"><img src="https://jira.nhvr.net:80/secure/viewavatar?size=xsmall&amp;avatarId=10418&amp;avatarType=issuetype"/></td>
+            <td style="width:80px;text-align:left;">Non-functional</td>
+            <td style="width:80px;text-align:left;">MDLPCNSG-28</td>
+            <td><p>Package: Upgrade Sendgrid dependency from ^2.0.0 to ^3.0.4 (upgraded in version 1.2.4)</p><p></p></td>
+          </tr>
+        
+    
+<tr>
         <td colspan=4><strong>Version: 1.2.4 - released 2016-07-07</strong></td>
       </tr>
         
