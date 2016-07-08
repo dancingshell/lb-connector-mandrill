@@ -7,21 +7,23 @@ module.exports = (function testSuite() {
   var loopback = require('loopback');
   var rewire = require("rewire");
   var DataSource = require('loopback-datasource-juggler').DataSource;
-  var __sendgridmock__ = {
-    "SendGrid": function SendGrid(apiKey) {
-      return {
-        "api_key": apiKey,
-        "emptyRequest": function emptyRequest() {
-          return {};
-        },
-        "API": function API(request, cb) {
-          request.statusCode = 200;
-          request.status = 'sent';
-          request._id = 'someidofmessage';
-          cb(request);
-        }
-      };
-    }
+  var __sendgridmock__ = function () {
+    return {
+      "SendGrid": function SendGrid(apiKey) {
+        return {
+          "api_key": apiKey,
+          "emptyRequest": function emptyRequest() {
+            return {};
+          },
+          "API": function API(request, cb) {
+            request.statusCode = 200;
+            request.status = 'sent';
+            request._id = 'someidofmessage';
+            cb(request);
+          }
+        };
+      }
+    };
   };
   return English.library()
   /*Scenario: SendGrid init with invalid properties */
@@ -29,7 +31,7 @@ module.exports = (function testSuite() {
       function test(done) {
         var Connector = rewire(path.join(__dirname, '../../lib/sendgrid'));
         this.world.connector = Connector;
-        this.world.__sendgridmock__ = __sendgridmock__;
+        this.world.__sendgridmock__ = __sendgridmock__();
         assert(true);
         done();
       })
