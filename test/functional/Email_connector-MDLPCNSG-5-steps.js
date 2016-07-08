@@ -7,7 +7,7 @@ module.exports = (function testSuite() {
     var loopback = require('loopback');
     return English.library()
     /*Scenario: Pass filters from datasource */
-      .define("When initiated with datasource $setting",
+      .define("When initiated with datasource '$setting'",
         function test(_1, done) {
           var Email = loopback.Email.extend('testEmail');
           var Connector = this.world.connector;
