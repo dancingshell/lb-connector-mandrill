@@ -257,7 +257,7 @@
             <td style="width:20px;padding:0;margin:0;text-align:center;"><img src="https://jira.nhvr.net:80/secure/viewavatar?size=xsmall&amp;avatarId=10411&amp;avatarType=issuetype"/></td>
             <td style="width:80px;text-align:left;">Feature</td>
             <td style="width:80px;text-align:left;">MDLPCNSG-2</td>
-            <td><p>Email connector: Add an loopback connector for sending emails from SendGrid</p><p></p></td>
+            <td><p>Email connector: Add a loopback connector for sending emails from SendGrid</p><p></p></td>
           </tr>
         
     

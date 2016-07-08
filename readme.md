@@ -18,38 +18,6 @@ npm install loopback-connector-sendgrid --save
 
 ## Configuration
 
-### Sendgrid username and password
-
-Use the following configuration if you have a username and password.
-
-datasources.json
-
-    {
-        "sendgrid": {
-            "connector": "loopback-connector-sendgrid",
-            "api_user": '[your username here]'
-            "api_key": '[your password here]'
-        }
-    }
-
-model-config.json
-
-    {
-        "Email": {
-            "dataSource": "sendgrid",
-            "public": false
-        }
-    }
-
-Configuration in JavaScript
-
-    var DataSource = require('loopback-datasource-juggler').DataSource;
-    var dsSendGrid = new DataSource('loopback-connector-sendgrid', {
-        api_user: '[your username here]'
-        api_key: '[your password here]'
-    });
-    loopback.Email.attachTo(dsSendGrid);
-
 ### Sendgrid API key
 
 Use the following configuration if you have an api key.
@@ -80,9 +48,22 @@ Configuration in JavaScript
     });
     loopback.Email.attachTo(dsSendGrid);
 
+### Sendgrid settings
+Using sendgrid mail_settings and tracking_settings:
+datasources.json
+
+    {
+        "sendgrid": {
+            "connector": "loopback-connector-sendgrid",
+            "api_key": '[your api key here]',
+            "mail_settings": {[your mail_settings JSON object]},
+            "tracking_settings": {[your tracking_settings JSON object]}
+        }
+    }
+
 ## Usage
 
-Basic option same as built in Loopback
+Basic option same as built in Loopback:
 
     loopback.Email.send({
         to: "test@to.com",
@@ -90,6 +71,36 @@ Basic option same as built in Loopback
         subject: "subject",
         text: "text message",
         html: "html <b>message</b>"
+    },
+    function(err, result) {
+        if(err) {
+            console.log('Upppss something crash');
+            return;
+        }
+        console.log(result);
+    });
+
+Advanced options using the sendGridConfig option:
+
+    loopback.Email.send({
+        to: "test@to.com",
+        from: "test@from.com",
+        subject: "subject",
+        text: "text message",
+        html: "html <b>message</b>",
+        sendGridConfig: {
+            personalizations: ...,
+            template_id: ...,
+            sections: ...,
+            headers: ...,
+            categories: ...,
+            custom_args: ...,
+            send_at: ...,
+            batch_id: ...,
+            asm: ...,
+            ip_pool_name: ...,
+            reply_to: ...
+        }
     },
     function(err, result) {
         if(err) {
@@ -364,7 +375,7 @@ Basic option same as built in Loopback
             <td style="width:20px;padding:0;margin:0;text-align:center;"><img src="https://jira.nhvr.net:80/secure/viewavatar?size=xsmall&amp;avatarId=10411&amp;avatarType=issuetype"/></td>
             <td style="width:80px;text-align:left;">Feature</td>
             <td style="width:80px;text-align:left;">MDLPCNSG-2</td>
-            <td><p>Email connector: Add an loopback connector for sending emails from SendGrid</p><p></p></td>
+            <td><p>Email connector: Add a loopback connector for sending emails from SendGrid</p><p></p></td>
           </tr>
         
     
@@ -378,6 +389,6 @@ MIT License (MIT). All rights not explicitly granted in the license are reserved
 
 Copyright (c) 2015 John Barry
 ## Dependencies
-[loopback-connector-sendgrid@2.0.0](&quot;https://github.com/Cellarise/loopback-connector-sendgrid&quot;) - &quot;MIT License (MIT)&quot;, 
+[loopback-connector-sendgrid@2.0.1](&quot;https://github.com/Cellarise/loopback-connector-sendgrid&quot;) - &quot;MIT License (MIT)&quot;, [q@1.4.1](&quot;https://github.com/kriskowal/q&quot;) - &quot;MIT&quot;, [ramda@0.21.0](&quot;https://github.com/ramda/ramda&quot;) - &quot;MIT&quot;, [sendgrid-rest@2.2.1](&quot;https://github.com/sendgrid/node-rest-client&quot;) - &quot;MIT&quot;, [sendgrid@3.0.7](&quot;https://github.com/sendgrid/sendgrid-nodejs&quot;) - &quot;MIT&quot;, 
 *documented by [npm-licenses](http://github.com/AceMetrix/npm-license.git)*.
 
