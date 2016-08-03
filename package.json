@@ -85,7 +85,7 @@
   "dependencies": {
     "q": "^1.4.1",
     "ramda": "^0.21.0",
-    "sendgrid": "^3.0.7"
+    "sendgrid": "^4.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.10.4",
