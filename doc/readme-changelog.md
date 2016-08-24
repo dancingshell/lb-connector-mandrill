@@ -9,6 +9,32 @@
   </tr>
     
 <tr>
+        <td colspan=4><strong>Version: 2.0.4 - released 2016-08-25</strong></td>
+      </tr>
+        
+<tr>
+            <td style="width:20px;padding:0;margin:0;text-align:center;"><img src="https://jira.nhvr.net:80/secure/viewavatar?size=xsmall&amp;avatarId=10418&amp;avatarType=issuetype"/></td>
+            <td style="width:80px;text-align:left;">Non-functional</td>
+            <td style="width:80px;text-align:left;">MDLPCNSG-32</td>
+            <td><p>Package: Update package dependencies</p><p></p></td>
+          </tr>
+        
+<tr>
+            <td style="width:20px;padding:0;margin:0;text-align:center;"><img src="https://jira.nhvr.net:80/secure/viewavatar?size=xsmall&amp;avatarId=10418&amp;avatarType=issuetype"/></td>
+            <td style="width:80px;text-align:left;">Non-functional</td>
+            <td style="width:80px;text-align:left;">MDLPCNSG-33</td>
+            <td><p>Package: Update package dependencies</p><p></p></td>
+          </tr>
+        
+<tr>
+            <td style="width:20px;padding:0;margin:0;text-align:center;"><img src="https://jira.nhvr.net:80/secure/viewavatar?size=xsmall&amp;avatarId=10403&amp;avatarType=issuetype"/></td>
+            <td style="width:80px;text-align:left;">Bug</td>
+            <td style="width:80px;text-align:left;">MDLPCNSG-34</td>
+            <td><p>Fix Invalid type of To email (found) #13</p><p></p></td>
+          </tr>
+        
+    
+<tr>
         <td colspan=4><strong>Version: 2.0.3 - released 2016-07-09</strong></td>
       </tr>
         

@@ -44,6 +44,7 @@ module.exports = (function testSuite() {
           connectTest = new Connector();
         } catch (err) {
           self.world.error = true;
+          self.world.errorMsg = err;
           return done();
         }
         self.world.error = false;
@@ -79,6 +80,7 @@ module.exports = (function testSuite() {
           };
         } catch (err) {
           self.world.error = true;
+          self.world.errorMsg = err;
           return done();
         }
         self.world.error = false;
@@ -111,6 +113,7 @@ module.exports = (function testSuite() {
         };
       } catch (err) {
         self.world.error = true;
+        self.world.errorMsg = err;
         return done();
       }
       self.world.error = false;
@@ -118,7 +121,7 @@ module.exports = (function testSuite() {
     })
 .define("Then it should be initiated without error",
       function test(done) {
-        assert(!this.world.error);
+        assert(!this.world.error, this.world.errorMsg);
         return done();
       })/*Scenario: Sending an email from Email.send */
 .define("And called using the method Email.send",

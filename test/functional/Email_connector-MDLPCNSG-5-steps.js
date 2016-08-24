@@ -14,7 +14,7 @@ module.exports = (function testSuite() {
           var self = this;
           var ds;
           try {
-            Connector.__set__('sendgridInstance', this.world.__sendgridmock__);
+            Connector.__set__('sendGridLib', this.world.__sendgridmock__);
             ds = new DataSource({
               "connector": Connector,
               "api_key": 'password',
@@ -46,6 +46,7 @@ module.exports = (function testSuite() {
             };
           } catch (err) {
             self.world.error = true;
+            self.world.errorMsg = err;
             return done();
           }
           self.world.error = false;
