@@ -81,7 +81,7 @@ Advanced options using the sendGridConfig option:
             template_id: ...,
             sections: ...,
             headers: ...,
-            categories: ...,
+            categories: [{category: 'your-category'}],
             custom_args: ...,
             send_at: ...,
             batch_id: ...,
