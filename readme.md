@@ -133,6 +133,13 @@ Advanced options using the sendGridConfig option:
 <tr>
             <td style="width:20px;padding:0;margin:0;text-align:center;"><img src="https://jira.nhvr.net:80/secure/viewavatar?size=xsmall&amp;avatarId=10418&amp;avatarType=issuetype"/></td>
             <td style="width:80px;text-align:left;">Non-functional</td>
+            <td style="width:80px;text-align:left;">MDLPCNSG-35</td>
+            <td><p>Readme: Clarify type of sendGridConfig.categories  - must be an object, not string #11</p><p></p></td>
+          </tr>
+        
+<tr>
+            <td style="width:20px;padding:0;margin:0;text-align:center;"><img src="https://jira.nhvr.net:80/secure/viewavatar?size=xsmall&amp;avatarId=10418&amp;avatarType=issuetype"/></td>
+            <td style="width:80px;text-align:left;">Non-functional</td>
             <td style="width:80px;text-align:left;">MDLPCNSG-32</td>
             <td><p>Package: Update package dependencies</p><p></p></td>
           </tr>
@@ -427,6 +434,6 @@ MIT License (MIT). All rights not explicitly granted in the license are reserved
 
 Copyright (c) 2015 John Barry
 ## Dependencies
-[loopback-connector-sendgrid@0.0.0](&quot;https://github.com/Cellarise/loopback-connector-sendgrid&quot;) - &quot;MIT License (MIT)&quot;, [q@1.4.1](&quot;https://github.com/kriskowal/q&quot;) - &quot;MIT&quot;, [ramda@0.22.1](&quot;https://github.com/ramda/ramda&quot;) - &quot;MIT&quot;, [sendgrid-rest@2.2.1](&quot;https://github.com/sendgrid/node-rest-client&quot;) - &quot;MIT&quot;, [sendgrid@4.0.1](&quot;https://github.com/sendgrid/sendgrid-nodejs&quot;) - &quot;MIT&quot;, 
+[loopback-connector-sendgrid@0.0.0](&quot;https://github.com/Cellarise/loopback-connector-sendgrid&quot;) - &quot;MIT License (MIT)&quot;, 
 *documented by [npm-licenses](http://github.com/AceMetrix/npm-license.git)*.
 
