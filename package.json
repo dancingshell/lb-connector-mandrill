@@ -40,30 +40,30 @@
       "stats": {
         "lines": {
           "pctSkipped": 0,
-          "pct": 58,
+          "pct": 59,
           "colour": "yellow"
         },
         "branches": {
           "pctSkipped": 0,
-          "pct": 30,
+          "pct": 38,
           "colour": "yellow"
         },
         "statements": {
           "pctSkipped": 0,
-          "pct": 58,
+          "pct": 59,
           "colour": "yellow"
         },
         "functions": {
           "pctSkipped": 0,
-          "pct": 44,
+          "pct": 47,
           "colour": "yellow"
         },
         "skipped": {
           "pct": 0
         },
         "overall": {
-          "pct": 48,
-          "colour": "red"
+          "pct": 51,
+          "colour": "yellow"
         }
       }
     }
