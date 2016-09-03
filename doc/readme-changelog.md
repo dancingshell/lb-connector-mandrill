@@ -9,6 +9,18 @@
   </tr>
     
 <tr>
+        <td colspan=4><strong>Version: 2.0.6 - released 2016-09-03</strong></td>
+      </tr>
+        
+<tr>
+            <td style="width:20px;padding:0;margin:0;text-align:center;"><img src="https://jira.nhvr.net:80/secure/viewavatar?size=xsmall&amp;avatarId=10403&amp;avatarType=issuetype"/></td>
+            <td style="width:80px;text-align:left;">Bug</td>
+            <td style="width:80px;text-align:left;">MDLPCNSG-37</td>
+            <td><p>Fix faulty &#39;to&#39; parsing #15</p><p></p></td>
+          </tr>
+        
+    
+<tr>
         <td colspan=4><strong>Version: 2.0.5 - released 2016-08-29</strong></td>
       </tr>
         
