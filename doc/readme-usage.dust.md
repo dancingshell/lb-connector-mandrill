@@ -62,7 +62,7 @@ Basic option same as built in Loopback:
     },
     function(err, result) {
         if(err) {
-            console.log('Upppss something crash');
+            console.log('Upppss something crash', err);
             return;
         }
         console.log(result);
@@ -78,21 +78,20 @@ Advanced options using the sendGridConfig option:
         html: "html <b>message</b>",
         sendGridConfig: {
             personalizations: ...,
-            template_id: ...,
+            templateId: ...,
             sections: ...,
             headers: ...,
             categories: [{category: 'your-category'}],
-            custom_args: ...,
-            send_at: ...,
-            batch_id: ...,
+            sendAt: ...,
+            batchId: ...,
             asm: ...,
-            ip_pool_name: ...,
-            reply_to: ...
+            ipPoolName: ...,
+            replyTo: ...
         }
     },
     function(err, result) {
         if(err) {
-            console.log('Upppss something crash');
+            console.log('Upppss something crash', err);
             return;
         }
         console.log(result);
