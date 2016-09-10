@@ -89,3 +89,63 @@ Some advantages - now you can use templates from Mandrill
         }
         console.log(result);
     });
+
+To customize emails using merge_vars
+ 
+#### Single Recipient
+     var
+      params,
+      user = {
+        firstName: 'Paul',
+        email: 'paul@example.com'
+      }
+
+    params = {
+      to: user.email,
+      template: {
+        name: 'test-email',
+        merge_vars: [ 
+          { //in your mandrill template `*|FIRST_NAME|*`
+            name: 'FIRST_NAME',
+            content: user.firstName
+          }
+        ]
+      }
+    };
+
+    loopback.Email.send( params, function( err, email ) {
+        ...
+    })
+        
+#### Multiple Recipients 
+    var
+      params,
+      users = [
+        {
+          firstName: 'Kaitlin',
+          email: 'kaitlin@example.com'
+        },
+        {
+          firstName: 'Ryan',
+          email: 'ryan@example.com'
+        }
+      ];
+
+    params = {
+      to: users.map( function( user ) {
+        return user.email;
+      }),
+      template: {
+        name: 'test-email',
+        merge_vars: {
+          //in your mandrill template `*|FIRST_NAME|*`
+          'FIRST_NAME': function( index ) {
+            return users[ index ].firstName;
+          }
+        }
+      }
+    };
+
+    loopback.Email.send( params, function( err, email ) {
+        ...
+    })
