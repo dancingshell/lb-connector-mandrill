@@ -3,9 +3,9 @@
 `lb-connector-mandrill` is the Loopback connector module which allow to send emails via Mandrill.
 
 ## 1. Installation
-````sh
+```sh
 npm install lb-connector-mandrill --save
-````
+```
 
 ## 2. Configuration
 
