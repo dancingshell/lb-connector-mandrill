@@ -12,23 +12,23 @@ npm install lb-connector-mandrill --save
 datasources.json
 
 ```js
-    {
-        "mandrill": {
-            "connector": "lb-connector-mandrill",
-            "apikey": "[your api key here]"
-        }
+{
+    "mandrill": {
+        "connector": "lb-connector-mandrill",
+        "apikey": "[your api key here]"
     }
+}
 ```
 
 model-config.json
 
 ```js
-    {
-        "Email": {
-            "dataSource": "mandrill",
-            "public": false
-        }
+{
+    "Email": {
+        "dataSource": "mandrill",
+        "public": false
     }
+}
 ```
 
 Additionaly you can set defaults
