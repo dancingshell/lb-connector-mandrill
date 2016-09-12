@@ -105,9 +105,17 @@ To customize emails using merge_vars
       template: {
         name: 'test-email',
         merge_vars: [ 
-          { //in your mandrill template `*|FIRST_NAME|*`
+          //in your mandrill template `*|FIRST_NAME|*`
+          {
             name: 'FIRST_NAME',
             content: user.firstName
+          }
+        ],
+        global_merge_vars: [
+          //in your mandrill template `*|team|*` or `*|TEAM|*`
+          {
+            name: 'TEAM',
+            content: 'Team Awesome'
           }
         ]
       }
