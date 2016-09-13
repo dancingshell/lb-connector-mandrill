@@ -159,14 +159,17 @@ params = {
   }),   
   template: {
     name: 'test-email',
-    merge_vars: {
+    merge_vars: [
       // in your mandrill template `*|FIRST_NAME|*`
-      // assign merge var as the key with value being a callback the recieves email and index
+      // content is a callback the recieves email and index
       // and returns the value for that merge_var for that user
-      'FIRST_NAME': function( email, index ) {
-        return users[ index ].firstName;
+      {
+        name: 'FIRST_NAME',
+        content: function( email, index ) {
+            return users[ index ].firstName;
+        }
       }
-    }
+    ]
   }
 };
 
