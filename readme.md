@@ -116,21 +116,21 @@ var
     to: user.email,
     template: {
       name: 'test-email',
-      merge_vars: [ 
-        //in your mandrill template `*|FIRST_NAME|*`
-        {
-          name: 'FIRST_NAME',
-          content: user.firstName
-        }
-      ],
-      global_merge_vars: [
-        //in your mandrill template `*|team|*` or `*|TEAM|*`
-        {
-          name: 'TEAM',
-          content: 'Team Awesome'
-        }
-      ]
+    },
+    merge_vars: [ 
+    //in your mandrill template `*|FIRST_NAME|*`
+    {
+        name: 'FIRST_NAME',
+        content: user.firstName
     }
+    ],
+    global_merge_vars: [
+    //in your mandrill template `*|team|*` or `*|TEAM|*`
+    {
+        name: 'TEAM',
+        content: 'Team Awesome'
+    }
+    ]
   };
   
   loopback.Email.send( params, function( err, email ) {
@@ -159,18 +159,18 @@ params = {
   }),   
   template: {
     name: 'test-email',
-    merge_vars: [
-      // in your mandrill template `*|FIRST_NAME|*`
-      // content is a callback the recieves email and index
-      // and returns the value for that merge_var for that user
-      {
-        name: 'FIRST_NAME',
-        content: function( email, index ) {
-            return users[ index ].firstName;
-        }
+  },
+  merge_vars: [
+    // in your mandrill template `*|FIRST_NAME|*`
+    // content is a callback the recieves email and index
+    // and returns the value for that merge_var for that user
+    {
+      name: 'FIRST_NAME',
+      content: function( email, index ) {
+        return users[ index ].firstName;
       }
-    ]
-  }
+    }
+  ]
 };
 
 loopback.Email.send( params, function( err, email ) {
